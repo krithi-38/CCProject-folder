@@ -1,0 +1,7 @@
+Flask
+Flask-Cors
+fpdf
+pymongo
+python-dotenv
+openai
+gunicorn
