@@ -11,7 +11,7 @@ on:
     - cron: '0 20 * * *'
 
 jobs:
-  zap_scan:
+  zapscan:
     runs-on: ubuntu-latest
 
     steps:
