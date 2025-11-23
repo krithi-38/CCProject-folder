@@ -1,0 +1,21 @@
+name: OWASP ZAP DAST Scan
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 20 * * *'   # runs daily at 20:00
+
+jobs:
+  zap_scan:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Run ZAP Baseline Scan
+        uses: zaproxy/action-baseline@v0.9.0
+        with:
+          target: "https://krithiweb123.z29.web.core.windows.net/"
+          rules_file_name: ""
+          cmd_options: "-a"
