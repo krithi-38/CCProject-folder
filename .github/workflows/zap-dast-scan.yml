@@ -2,8 +2,10 @@ name: OWASP ZAP DAST Scan
 
 permissions:
   contents: read
-  issues: write
+  actions: write
+  checks: write
   security-events: write
+  id-token: write
 
 on:
   workflow_dispatch:
@@ -24,3 +26,5 @@ jobs:
           target: "https://krithiweb123.z29.web.core.windows.net/"
           rules_file_name: ""
           cmd_options: "-a"
+          artifact_name: "zap-report"
+          output_folder: "zap-results"
