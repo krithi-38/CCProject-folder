@@ -1,0 +1,36 @@
+name: Frontend CI/CD Demo
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  ci-cd:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1️⃣ CHECKOUT CODE
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      # 2️⃣ DOCKER BUILD (from frontend folder)
+      - name: Build Docker Image
+        run: |
+          echo "Building Docker image from frontend folder..."
+          docker build -t frontend-demo:latest frontend/
+
+      # 3️⃣ SAST SECURITY SCAN (checks JS/CSS vulnerabilities)
+      - name: Install Retire.js
+        run: |
+          npm install -g retire
+
+      - name: Run SAST Scan
+        run: |
+          retire --path frontend/ || echo "Scan completed (warnings ignored)"
+
+      # 4️⃣ SIMULATED DEPLOYMENT (does NOT affect your Azure site)
+      - name: Simulate Deployment
+        run: |
+          echo "Simulating deployment... (Production not touched)"
+          ls -R frontend/
