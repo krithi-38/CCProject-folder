@@ -27,4 +27,4 @@ jobs:
           rules_file_name: ""
           cmd_options: "-a"
           artifact_name: "zap-report"
-          output_folder: "zap-results"
+
