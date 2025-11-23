@@ -34,3 +34,8 @@ jobs:
         run: |
           echo "Simulating deployment... (Production not touched)"
           ls -R frontend/
+
+      - name: Monitoring Log
+        run: |
+          echo "🟩 Build completed at $(date)"
+          echo "🟩 Job executed successfully — Observability test log"
