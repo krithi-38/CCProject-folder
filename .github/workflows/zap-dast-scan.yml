@@ -1,9 +1,14 @@
 name: OWASP ZAP DAST Scan
 
+permissions:
+  contents: read
+  issues: write
+  security-events: write
+
 on:
   workflow_dispatch:
   schedule:
-    - cron: '0 20 * * *'   # runs daily at 20:00
+    - cron: '0 20 * * *'
 
 jobs:
   zap_scan:
